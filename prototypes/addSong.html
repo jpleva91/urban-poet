@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Urban Poet - Song Player</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<header>
+				<h1 class="jumbotron">Urban Poet</h1>
+			</header>
+			<h2 class="sub-header" id="welcome">Add a Song</h2>
+			<div class="container col-md-6" id="login">
+				<form action="musicPage.html">
+					<div class="form-group">
+						<label for="inputTitle" class="h1">Title</label>
+						<input type="text" class="form-control" id="inputTitle" placeholder="Enter title">
+					</div>
+					<div class="form-group">
+						<label for="inputArtist" class="h1">Artist</label>
+						<input type="text" class="form-control" id="inputArtist" placeholder="Enter Artist">
+					</div>					
+					<div class="form-group">
+						<label for="inputSoundCloud" class="h1">SoundCloud Embed URL</label>
+						<input type="text" class="form-control" id="inputSoundCloud" placeholder="Enter SoundCloud Embed URL">
+					</div>
+					<div class="form-group">
+						<label for="searchLyrics" class="h1">Search Lyrics</label>
+					</div>					
+					<button type="submit" class="btn btn-primary col-md-12" id="searchLyrics">Go!</button>
+				</form>
+			</div>	
+		</div>
+		
+	<!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- MusixMatch Tracking Script -->
+    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+	</body>
+</html>
