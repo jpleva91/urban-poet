@@ -1,9 +1,74 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 $primary-color: white;
 $background-color: black;
+$background-image: url('../images/blur.jpg');
+$background-transparent: rgba(0, 0, 0, .5);
+$border-radius: 5px;
+$large-font: 64px;
+$padding-large: 36px;
+$padding-small: 6px;
 
 body {
-	background: $background-color;
+	background: $background-image;
+	background-size: 100%;
 	color: $primary-color;
   font: 100% $font-stack;
+  text-shadow: 2px 2px $background-color;
+	
+	// Header
+  .jumbotron {
+  	background-color: $background-transparent;
+  	margin-bottom: $padding-small;
+  }
+	// songPlayer.html => add a new song link
+  #new-song {
+  	color: $primary-color;
+  	float: right;
+  	margin-bottom: $padding-small;
+  }
+	
+	// Lyrics, Welcome padding
+  h2 {
+  	padding-top: $padding-large;
+  }
+	
+	// Login Page Welcome Heading
+  #welcome {
+  	font-size: $large-font;
+  	margin-bottom: $padding-small;
+  	text-align: center;
+  }
+	
+	// Login Page, Login Form
+  #login {
+  	background-color: $background-transparent;
+  	border-radius: $border-radius;
+  	padding-top: $padding-large;
+  	padding-bottom: $padding-large;
+  	text-align: center;
+  }
+	
+	// Login Page, Signup & Login buttons
+	#login-btn {
+		margin-top: $padding-large;
+		margin-bottom: $padding-small;
+	}
+
+	#signup-btn {
+		margin-top: $padding-small;
+		margin-bottom: $padding-large;
+	}
+
+	#forgot-password {
+		padding-bottom: $padding-large;
+	}
+
+	// Song Page, Lyrics box
+  #lyrics {
+  	background-color: $background-transparent;
+  	border-radius: $border-radius;
+  	padding-top: $padding-small;
+  	text-align: center;
+  }
+  
 }
