@@ -1,6 +1,6 @@
 // GET /
 function home(req, res) {
-	res.render('index');
+	res.render('musicPage');
 }
 
 module.exports = {

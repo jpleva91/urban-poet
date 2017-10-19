@@ -1,0 +1,57 @@
+<% include ./partials/header.ejs %>
+
+<div class="container" id="song-player">
+				<a id="new-song" href="addSong.html">Want to Add a New Song? Click Here.</a>
+
+				<!-- Soundcloud Embed Code //Song => Share => Embed => Code -->
+				<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/157521159&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
+			</div>
+			<div class="container">
+				<h2 class="sub-header">Lyrics</h2>
+
+			<!-- Lyrics from API call with url: (http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=53410090&apikey=#) -->
+				<section class="content-box" id="lyrics">
+					Special technique, fuck that<br>Special technique of shadowboxing<br>(God damn)<br>The GZA, ah, god damn<br>The GZA, ah, god damn<br>(Pledge allegiance to the hip-hop)<br>Method, god damn<br>(I pledge allegiance to the hip-hop)<br>Maximillion, Maximillion<br>(I pledge allegiance to the hip-hop)<br>Johnny Blaze, Johnny Blaze, Johnny Blaze<br>(I pledge allegiance to the hip-hop)<br>Maximillion, Maximillion, Maximillion<br>(Shadowboxing)<br>I breaks it down to the bone gristle<br>Ill speaking Scud missile heat seeking<br>Johnny blazing, nightmares like Wes Craven<br>Niggaz gunnin', my third eye seen it coming<br>Before it happen<br>You know about them fucking Staten<br>Kids they smashin' everything, huh<br>In any shape, form or fashion<br>Now everybody talking 'bout this laughin', hmmm<br>Is you bustin' steel or is you flashin'? Hmmm<br>Talkin' out your asshole<br>You shoulda learnt about the flow and peasy afro<br>Ticallion stallion, chinky eye and snot nosed<br>From my naps to the bunion on my big toe<br>I keeps it movin', know just what the fuck I'm doin'<br>...<br>******* This Lyrics is NOT for Commercial use *******<br>(1409616224716)"
+				</section>
+			</div>
+			<div class="container" id="buttons">
+				<button class="h1 col-md-9 musicButtons addPlaylist">Add To Playlist</button>
+				<button class="btn btn-primary col-md-9 musicButtons">Serendipity</button>
+				<div class="dropdown">
+					<button class="btn btn-warning dropdown-toggle col-md-9 musicButtons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="playlist">Your Playlist</button>
+					<ul class="dropdown-menu col-md-9" aria-labelledby="playlist" id="playlist">
+						<button class="btn btn-warning col-md-12 playlist"><a href="#">Test Song</a></button>
+						<li role="separator" class="divider"></li>
+						<button class="btn btn-warning col-md-12 playlist"><a href="#">Test Song</a></button>
+						<li role="separator" class="divider"></li>
+						<button class="btn btn-warning col-md-12 playlist"><a href="#">Test Song</a></button>
+						<li role="separator" class="divider"></li>
+						<button class="btn btn-warning col-md-12 playlist"><a href="#">Test Song</a></button>
+						<li role="separator" class="divider"></li>
+						<button class="btn btn-warning col-md-12 playlist"><a href="#">Test Song</a></button>
+					</ul>
+				</div>
+			</div>
+			<div class="container">
+				<h2 class="sub-header">Discussion</h2>
+				<ul class="comment-section">
+					<h3 class="user">Test-User</h3>
+					<li class="content-box" id="comment">Trust fund tofu master cleanse unicorn, bespoke distillery etsy drinking vinegar chartreuse roof party viral ramps sustainable. VHS sriracha artisan jean shorts, four loko green juice subway tile. Four loko kale chips godard, vape selfies jean shorts fixie woke vice quinoa. 90's roof party bitters paleo. Lumbersexual taiyaki shoreditch thundercats, messenger bag mumblecore mustache affogato 90's cornhole. Woke umami kitsch, fanny pack next level cold-pressed flexitarian pop-up. Ramps meditation ennui quinoa tumblr austin scenester knausgaard direct trade. Actually thundercats hot chicken, chambray iPhone kickstarter schlitz bushwick post-ironic pok pok. Migas etsy disrupt pinterest cardigan unicorn. Pork belly retro aesthetic meditation, biodiesel hoodie scenester shoreditch live-edge unicorn locavore synth. Pabst banh mi glossier, 3 wolf moon chambray YOLO poutine selvage artisan cliche XOXO salvia.</li>
+					<h3 class="user">Test-User</h3>
+					<li class="content-box" id="comment">Four loko poke woke, kickstarter palo santo gastropub PBR&B fixie unicorn man braid chartreuse artisan. Butcher taxidermy keffiyeh, freegan bitters mustache ramps pop-up la croix raclette shaman helvetica messenger bag put a bird on it. Sriracha pabst gastropub, offal kombucha 90's bespoke four loko meditation poutine prism affogato swag. Dreamcatcher listicle before they sold out pinterest iceland, bicycle rights whatever direct trade mumblecore subway tile shoreditch. Banjo enamel pin yr 3 wolf moon VHS wolf. Plaid succulents mustache disrupt kale chips keytar, lumbersexual polaroid viral. Godard try-hard jianbing slow-carb mixtape. Food truck brunch helvetica fam, hammock succulents normcore vexillologist shabby chic paleo freegan coloring book truffaut. Dreamcatcher helvetica ennui keytar. Crucifix four dollar toast vice man braid echo park craft beer skateboard paleo biodiesel meh lumbersexual raclette. Semiotics offal shabby chic hashtag letterpress vegan vexillologist meh microdosing post-ironic actually shoreditch. Artisan venmo post-ironic polaroid cliche jianbing succulents waistcoat bushwick unicorn. Pork belly DIY locavore woke pickled, activated charcoal succulents narwhal air plant messenger bag flexitarian quinoa cardigan swag readymade.</li>
+					<h3 class="user">Test-User</h3>
+					<li class="content-box" id="comment">Trust fund copper mug tofu sartorial, chillwave artisan woke PBR&B bespoke. Pug portland helvetica, shaman cred chambray irony palo santo vinyl freegan asymmetrical trust fund kinfolk. Sartorial sustainable skateboard craft beer health goth VHS, cronut 90's beard deep v subway tile DIY kogi man braid tofu. Ennui tumeric health goth tbh franzen. Banjo schlitz selvage shabby chic post-ironic whatever pabst cray blog. Truffaut meh four loko direct trade yr raw denim cornhole blue bottle jean shorts pour-over roof party food truck kitsch. Yr fingerstache offal shabby chic four loko authentic, fam paleo. Godard chia biodiesel, coloring book fam typewriter literally sriracha succulents tousled. Pickled yr sustainable, meditation tbh small batch glossier man braid prism tilde snackwave ugh. Kickstarter plaid neutra, synth selvage cornhole messenger bag locavore mumblecore sustainable. Craft beer jean shorts franzen hell of, master cleanse pour-over forage mustache coloring book. Neutra vexillologist thundercats semiotics man braid. Fashion axe hella scenester tumblr migas knausgaard offal actually. Skateboard raw denim normcore irony, cold-pressed banh mi +1 williamsburg austin air plant tofu raclette godard umami. Vinyl street art heirloom cornhole skateboard ugh.</li>
+					<h3 class="user">Test-User</h3>
+					<li class="content-box" id="comment">Trust fund copper mug tofu sartorial, chillwave artisan woke PBR&B bespoke. Pug portland helvetica, shaman cred chambray irony palo santo vinyl freegan asymmetrical trust fund kinfolk. Sartorial sustainable skateboard craft beer health goth VHS, cronut 90's beard deep v subway tile DIY kogi man braid tofu. Ennui tumeric health goth tbh franzen. Banjo schlitz selvage shabby chic post-ironic whatever pabst cray blog. Truffaut meh four loko direct trade yr raw denim cornhole blue bottle jean shorts pour-over roof party food truck kitsch. Yr fingerstache offal shabby chic four loko authentic, fam paleo. Godard chia biodiesel, coloring book fam typewriter literally sriracha succulents tousled. Pickled yr sustainable, meditation tbh small batch glossier man braid prism tilde snackwave ugh. Kickstarter plaid neutra, synth selvage cornhole messenger bag locavore mumblecore sustainable. Craft beer jean shorts franzen hell of, master cleanse pour-over forage mustache coloring book. Neutra vexillologist thundercats semiotics man braid. Fashion axe hella scenester tumblr migas knausgaard offal actually. Skateboard raw denim normcore irony, cold-pressed banh mi +1 williamsburg austin air plant tofu raclette godard umami. Vinyl street art heirloom cornhole skateboard ugh.</li>
+					<h3 class="user">Test-User</h3>
+					<li class="content-box">Gastropub bushwick celiac kogi prism snackwave. Etsy YOLO knausgaard subway tile fingerstache authentic. Keytar skateboard stumptown pabst pitchfork cornhole gochujang. Photo booth kogi thundercats viral blog mumblecore skateboard single-origin coffee truffaut whatever la croix pok pok green juice man braid. Sustainable shabby chic snackwave blog you probably haven't heard of them helvetica kinfolk lumbersexual art party locavore portland godard poutine fanny pack. Listicle fashion axe selfies skateboard cloud bread, copper mug enamel pin disrupt humblebrag ramps lyft next level chillwave. Stumptown austin meggings, celiac pinterest literally marfa iPhone seitan venmo umami everyday carry bushwick neutra distillery. Thundercats church-key chillwave vice, tacos helvetica offal lyft waistcoat semiotics fanny pack. Normcore taiyaki lomo sustainable adaptogen. Man braid subway tile hashtag cronut retro sustainable salvia VHS, truffaut vaporware taiyaki pabst woke. Tousled brooklyn salvia jianbing, master cleanse small batch mumblecore irony biodiesel ramps lomo gastropub tumeric. Prism blog humblebrag street art fashion axe.</li>
+				</ul>
+			</div>
+			<div class="form-group">
+				<label for="addComment" class="sub-header">Add a Comment:</label>
+				<textarea class="form-control" rows="7" id="addComment"></textarea>
+				<button class="btn btn-info">Post Comment</button>
+			</div>
+		</div>
+	<% include ./partials/footer.ejs %>
+		

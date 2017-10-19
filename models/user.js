@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
+let mongoose = require('mongoose');
+let bcrypt   = require('bcrypt-nodejs');
 
-const User = mongoose.Schema({
-	local : {
-		email : String,
-		password : String
-	}
+var User = mongoose.Schema({
+  local : {
+    email        : String,
+    password     : String,
+  }
 });
 
 User.methods.encrypt = function(password) {

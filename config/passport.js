@@ -29,7 +29,7 @@ module.exports = function(passport) {
 				//Create one
 				let newUser = new User();
 				newUser.local.email = email;
-				newUser.local.password = newUser. encrypt(password);
+				newUser.local.password = newUser.encrypt(password);
 				newUser.save(function(err) {
 					if (err) throw err;
 					return callback(null, newUser);
@@ -43,14 +43,18 @@ module.exports = function(passport) {
 		passwordField : 'password',
 		passReqToCallback : true
 	}, function(req, email, password, callback) {
-		User.findOne({'local.email' : email}, function(err, user) {
+		User.findOne({'local.email': email}, function(err, user) {
 			if (err) return callback(err);
 			//No user found
-			if(!user || !user.validPassword(password)) {
-				return callback(null, false, req.flash('loginMessage', 'Username or Password Incorrect'));
+			if(!user) {
+				return callback(null, false, req.flash('loginMessage', 'Username not found'));
+			}
+			//Wrong password
+			if(!user.validPassword(password)) {
+				return callback(null, false, req.flash('loginMessage', 'Password incorrect! Keep trying!'));
 			}
 
 			return callback(null, user);
 		});
-	}));
+	}));	
 };

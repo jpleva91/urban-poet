@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/urban-poet-authentication');
 
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(bodyParser);
+app.use(bodyParser());
 
 app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
@@ -32,8 +32,8 @@ app.use(function(req, res, next) {
 	next();
 });
 
-const routes = require('./config/routes');
-app.use(routes);
+ let routes = require('./config/routes');
+ app.use(routes);
 
 app.listen(3000, function() {
 	console.log("Go to localhost 3000");
