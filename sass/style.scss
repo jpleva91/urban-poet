@@ -9,7 +9,7 @@ $background-favorite: url('../images/pokeball.png');
 $gold-color: gold;
 $medium-font: 36px;
 $large-font: 64px;
-$small-font: 24px;
+$small-font: 18px;
 $padding-large: 36px;
 $padding-small: 6px;
 
@@ -23,25 +23,26 @@ body {
 	// Header
   .jumbotron {
   	background-color: $background-transparent;
+  	color: $gold-color;
   	font-size: $large-font;
   	margin-bottom: $padding-small;
   }
 	// songPlayer.html => add a new song link
   #new-song {
   	color: $primary-color;
-  	font-size: $medium-font;
+  	font-size: $small-font;
   	float: right;
   	margin-bottom: $padding-small;
   }
 	
 	// Lyrics, Welcome padding
-  #lyrics-header {
+  .sub-header {
   	font-size: $medium-font;
   	padding-top: $padding-large;
   }
 	
 	// Login Page Welcome Heading
-  #welcome {
+  .sub-header#welcome {
   	font-size: $large-font;
   	margin-bottom: $padding-small;
   	text-align: center;
@@ -72,11 +73,12 @@ body {
 	}
 
 	// Music Page, Lyrics box
-  #lyrics {
+  .content-box {
   	background-color: $background-transparent;
   	border-radius: $border-radius;
   	font-size: $small-font;
   	padding-top: $padding-small;
+  	padding-bottom: $padding-small;
   	text-align: center;
   }
 	
@@ -93,7 +95,7 @@ body {
   	padding-top: $padding-small;
   }
 
-  #addPlaylist {
+  .addPlaylist {
   	border: none;
   	background-color: $background-clear;
   	background-image: $background-favorite;
@@ -104,7 +106,15 @@ body {
   	font-size: $large-font;
   	padding: 10px 0 10px 0;
   	text-shadow: 3px 3px black;
+
+		&:active {
+			background-color: white;
+		}
+		&:focus{
+			color:white;
+		}
   }
+
   #playlist {
   	background-color: $gold-color;
   	color: $background-color;
@@ -113,5 +123,14 @@ body {
   		font-size: $medium-font;
   		text-shadow: none;
   	}
+  }
+	
+	.user {
+		color: $gold-color;
+		margin-top: $padding-large;
+	}
+
+  #comment {
+  	font-size: $small-font;
   }
 }
