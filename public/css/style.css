@@ -77,3 +77,11 @@ body {
     margin-top: 36px; }
   body #comment {
     font-size: 18px; }
+  body #alert-message {
+    text-shadow: none; }
+  body .login {
+    color: gold;
+    font-size: 18px;
+    float: right;
+    padding: 6px;
+    text-shadow: none; }

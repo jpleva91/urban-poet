@@ -133,4 +133,16 @@ body {
   #comment {
   	font-size: $small-font;
   }
+
+  #alert-message {
+    text-shadow: none;
+  }
+
+  .login {
+    color: $gold-color;
+    font-size: $small-font;
+    float: right;
+    padding: $padding-small;
+    text-shadow: none;
+  }
 }
