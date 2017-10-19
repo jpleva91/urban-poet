@@ -6,12 +6,15 @@ body {
   text-shadow: 2px 2px black; }
   body .jumbotron {
     background-color: rgba(0, 0, 0, 0.5);
+    font-size: 64px;
     margin-bottom: 6px; }
   body #new-song {
     color: white;
+    font-size: 36px;
     float: right;
     margin-bottom: 6px; }
-  body h2 {
+  body #lyrics-header {
+    font-size: 36px;
     padding-top: 36px; }
   body #welcome {
     font-size: 64px;
@@ -34,5 +37,32 @@ body {
   body #lyrics {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+    font-size: 24px;
     padding-top: 6px;
     text-align: center; }
+  body #buttons {
+    margin-top: 36px;
+    text-align: center; }
+  body .musicButtons {
+    margin-bottom: 36px;
+    font-size: 36px;
+    padding-bottom: 6px;
+    padding-top: 6px; }
+  body #addPlaylist {
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/pokeball.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+    color: gold;
+    font-size: 64px;
+    padding: 10px 0 10px 0;
+    text-shadow: 3px 3px black; }
+  body #playlist {
+    background-color: gold;
+    color: black; }
+    body #playlist a {
+      color: black;
+      font-size: 36px;
+      text-shadow: none; }
