@@ -2,9 +2,19 @@ const db = require('../models');
 let request = require('request');
 const apikey = require('../config/env.js');
 
+// POST /playlist
+function addPlaylist(req, res, next) {
+	console.log("add Playlist: controller hit");
+	db.User.findOne({'songs': { 'songId': req.body.songId } }, function(err, song) {
+		console.log(req.body.songId);
+		req.user.songs.push(req.body.songId);
+		req.user.save();
+	});
+}
+
 // GET /randomize
 function getRandom(req, res, next) {
-	console.log("controller hit");
+	 console.log("getRandom: controller hit");
 	db.Song.find({}, function(err, songs) {
 		let randomize = Math.floor(Math.random() * songs.length);
 		let track_id = songs[randomize].lyricsId;
@@ -21,5 +31,6 @@ function getRandom(req, res, next) {
 
 
 module.exports = {
+	addPlaylist: addPlaylist,
   getRandom: getRandom
 };

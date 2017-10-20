@@ -1,11 +1,15 @@
 let mongoose = require('mongoose');
 let bcrypt   = require('bcrypt-nodejs');
+let Schema = mongoose.Schema;
 
 var User = mongoose.Schema({
   local: {
     email: String,
     password: String,
-  }
+  },
+  songs: [{
+    songId: String
+  }]
 });
 
 User.methods.encrypt = function(password) {

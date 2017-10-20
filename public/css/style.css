@@ -6,7 +6,7 @@ body {
   text-shadow: 2px 2px black; }
   body .jumbotron {
     background-color: rgba(0, 0, 0, 0.5);
-    color: gold;
+    color: white;
     font-size: 64px;
     margin-bottom: 6px; }
   body #new-song {

@@ -29,6 +29,9 @@ router.route('/')
  router.route('/logout')
  	.get(usersController.getLogout)
 
+ router.route('/playlist')
+ 	.post(songsController.addPlaylist)
+
  router.route('/randomize')
  	.get(songsController.getRandom)
 

@@ -11,3 +11,4 @@ let SongSchema = new Schema({
 let Song = mongoose.model('Song', SongSchema);
 
 module.exports = Song;
+module.exports.SongSchema = SongSchema;
