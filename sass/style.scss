@@ -105,7 +105,7 @@ body {
   	color: $gold-color;
   	font-size: $large-font;
   	padding: 10px 0 10px 0;
-  	text-shadow: 3px 3px black;
+  	text-shadow: 3px 3px $background-color;
 
 		&:active {
 			background-color: white;
