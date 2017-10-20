@@ -1,0 +1,87 @@
+body {
+  background: url("../images/blur.jpg");
+  background-size: 100%;
+  color: white;
+  font: 100% Helvetica, sans-serif;
+  text-shadow: 2px 2px black; }
+  body .jumbotron {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: gold;
+    font-size: 64px;
+    margin-bottom: 6px; }
+  body #new-song {
+    color: white;
+    font-size: 18px;
+    float: right;
+    margin-bottom: 6px; }
+  body .sub-header {
+    font-size: 36px;
+    padding-top: 36px; }
+  body .sub-header#welcome {
+    font-size: 64px;
+    margin-bottom: 6px;
+    text-align: center; }
+  body #login {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    text-align: center; }
+  body #login-btn {
+    margin-top: 36px;
+    margin-bottom: 6px; }
+  body #signup-btn {
+    margin-top: 6px;
+    margin-bottom: 36px; }
+  body #forgot-password {
+    padding-bottom: 36px; }
+  body .content-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    font-size: 18px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center; }
+  body #buttons {
+    margin-top: 36px;
+    text-align: center; }
+  body .musicButtons {
+    margin-bottom: 36px;
+    font-size: 36px;
+    padding-bottom: 6px;
+    padding-top: 6px; }
+  body .addPlaylist {
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/pokeball.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+    color: gold;
+    font-size: 64px;
+    padding: 10px 0 10px 0;
+    text-shadow: 3px 3px black; }
+    body .addPlaylist:active {
+      background-color: white; }
+    body .addPlaylist:focus {
+      color: white; }
+  body #playlist {
+    background-color: gold;
+    color: black; }
+    body #playlist a {
+      color: black;
+      font-size: 36px;
+      text-shadow: none; }
+  body .user {
+    color: gold;
+    margin-top: 36px; }
+  body #comment {
+    font-size: 18px; }
+  body #alert-message {
+    text-shadow: none; }
+  body .login {
+    color: gold;
+    font-size: 18px;
+    float: right;
+    padding: 6px;
+    text-shadow: none; }
