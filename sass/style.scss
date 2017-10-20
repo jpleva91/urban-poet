@@ -145,4 +145,7 @@ body {
     padding: $padding-small;
     text-shadow: none;
   }
+  #lyrics {
+    white-space: pre-wrap;
+  }
 }

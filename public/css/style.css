@@ -85,3 +85,5 @@ body {
     float: right;
     padding: 6px;
     text-shadow: none; }
+  body #lyrics {
+    white-space: pre-wrap; }

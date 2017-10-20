@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 let SongSchema = new Schema({
 	title: String,
 	artist: String,
-	soundCloudEmbedId: String,
+	soundCloudEmbedUrl: String,
 	lyricsId: String
 });
 
