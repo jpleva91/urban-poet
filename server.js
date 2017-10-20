@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
-mongoose.connect('mongodb://localhost/urban-poet-authentication');
+// mongoose.connect('mongodb://localhost/urban-poet-authentication');
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -35,6 +35,6 @@ app.use(function(req, res, next) {
  let routes = require('./config/routes');
  app.use(routes);
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
 	console.log("Go to localhost 3000");
 });

@@ -1,5 +1,5 @@
 let LocalStrategy = require('passport-local').Strategy;
-let User = require('../models/user');
+let db = require('../models');
 
 module.exports = function(passport) {
 
@@ -8,7 +8,7 @@ module.exports = function(passport) {
 	});
 
 	passport.deserializeUser(function(id, callback) {
-		User.findById(id, function(err, user) {
+		db.User.findById(id, function(err, user) {
 			callback(err, user);
 		});
 	});
@@ -19,7 +19,7 @@ module.exports = function(passport) {
 		passReqToCallback : true
 	}, function(req, email, password, callback) {
 		//Find a user with this email
-		User.findOne({'local.email' : email}, function(err, user) {
+		db.User.findOne({'local.email' : email}, function(err, user) {
 			if (err) return callback(err);
 			//If there already is a user with that email
 			if (user) {
@@ -27,7 +27,7 @@ module.exports = function(passport) {
 			} else {
 				//There is not already a user with that email
 				//Create one
-				let newUser = new User();
+				let newUser = new db.User();
 				newUser.local.email = email;
 				newUser.local.password = newUser.encrypt(password);
 				newUser.save(function(err) {
@@ -43,7 +43,7 @@ module.exports = function(passport) {
 		passwordField : 'password',
 		passReqToCallback : true
 	}, function(req, email, password, callback) {
-		User.findOne({'local.email': email}, function(err, user) {
+		db.User.findOne({'local.email': email}, function(err, user) {
 			if (err) return callback(err);
 			//No user found
 			if(!user) {
