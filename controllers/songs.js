@@ -5,11 +5,8 @@ const apikey = require('../config/env.js');
 // POST /playlist
 function addPlaylist(req, res, next) {
 	console.log("add Playlist: controller hit");
-	db.User.findOne({'songs': { 'songId': req.body.songId } }, function(err, song) {
-		console.log(req.body.songId);
-		req.user.songs.push(req.body.songId);
-		req.user.save();
-	});
+	req.user.songs.push(req.body.songId);
+	req.user.save();
 }
 
 // GET /randomize
