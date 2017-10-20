@@ -8,8 +8,13 @@ const passport = require('passport');
 const usersController = require('../controllers/users');
 const staticsController = require('../controllers/statics');
 
+function authenticatedUser(req, res, next) {
+	if(req.isAuthenticated()) {return next();}
+	res.redirect('/login');
+}
+
 router.route('/')
-	.get(staticsController.home);
+	.get(authenticatedUser, staticsController.home);
 
  router.route('/signup')
  	.get(usersController.getSignup)
