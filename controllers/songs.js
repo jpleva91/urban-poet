@@ -32,6 +32,18 @@ function getSongs(req, res, next) {
 // GET /songs/:id
 function getSongById(req, res, next) {
 	console.log("getSongById: controller hit");
+	// console.log(req.params.id);
+	db.Song.findOne({_id: req.params.id}, function(err, foundSong) {
+		let track_id = foundSong.lyricsId;
+		let URL = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + track_id + "&apikey=" + apikey;
+		request(URL, function(error, response, body) {
+			if (error) { console.log('error:', error); }
+			console.log('statusCode: ', response && response.statusCode);
+			body = JSON.parse(body);
+			let lyrics = body.message.body.lyrics.lyrics_body;
+			res.json({song: foundSong, lyrics: lyrics});
+		});
+	});
 }
 
 // GET /randomize
@@ -42,7 +54,7 @@ function getRandom(req, res, next) {
 		let track_id = songs[randomize].lyricsId;
 		let URL = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + track_id + "&apikey=" + apikey;
 		request(URL, function(error, response, body) {
-			console.log('error:', error);
+			if (error) { console.log('error:', error); }
 			console.log('statusCode:', response && response.statusCode);
 			body = JSON.parse(body);
 			let lyrics =  body.message.body.lyrics.lyrics_body;

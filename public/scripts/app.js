@@ -1,6 +1,7 @@
 console.log("Sanity Check: JavaScript is loaded");
 
 $(document).ready(function() {
+
 	console.log("jQuery has entered the match");
 	randomize();
 	playlist();
@@ -16,6 +17,18 @@ $(document).ready(function() {
 		playlist();
 	});
 
+	$('#dropdown').on('click', '.song-button', function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: $(this).attr('href'),
+		})
+		.done(function(data) {
+		$('#song-player').html(data.song.soundCloudEmbedUrl);
+		$('#lyrics').html(data.lyrics);
+		});
+	});
+
 	$('#randomize').on('click', function() {
 		randomize();
 	});
@@ -28,7 +41,7 @@ function playlist() {
 	})
 	.done(function(data) {
 		data.playlist.forEach(function(song) {
-			$('#dropdown').append('<button class="btn btn-warning col-md-12 playlist"><a href=/songs/'+ song._id + '>' + song.artist + ' - ' + song.title + '</a></button>');
+			$('#dropdown').append('<button class="btn btn-warning col-md-12 playlist"><a class="song-button" href=/songs/'+ song._id + '>' + song.artist + ' - ' + song.title + '</a></button>');
 		});
 	});
 }
@@ -39,7 +52,6 @@ function randomize() {
 	url: '/randomize'
 	})
 	.done(function(data) {
-		// console.log(data);
 		$('.addPlaylist').attr('data-song-id', data.song._id);
 		$('#song-player').html(data.song.soundCloudEmbedUrl);
 		$('#lyrics').html(data.lyrics);

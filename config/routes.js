@@ -15,8 +15,7 @@ function authenticatedUser(req, res, next) {
 }
 
 router.route('/')
-	// .get(authenticatedUser, staticsController.home);
-	.get(staticsController.home);
+	.get(authenticatedUser, staticsController.home)
 
  router.route('/signup')
  	.get(usersController.getSignup)

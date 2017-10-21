@@ -120,9 +120,12 @@ body {
   	background-color: $gold-color;
   	color: $background-color;
   	a {
-  		color: black;
+  		color: $background-color;
+      display: block;
   		font-size: $medium-font;
+      text-decoration: none;
   		text-shadow: none;
+      width: 100%;
   	}
   }
 	
