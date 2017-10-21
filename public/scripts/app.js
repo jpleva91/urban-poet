@@ -12,6 +12,8 @@ $(document).ready(function() {
 			url: '/playlist',
 			data: {songId: songId}
 		});
+		$('#dropdown').empty();
+		playlist();
 	});
 
 	$('#randomize').on('click', function() {
@@ -26,7 +28,7 @@ function playlist() {
 	})
 	.done(function(data) {
 		data.playlist.forEach(function(song) {
-			$('#dropdown').append('<button class="btn btn-warning col-md-12 playlist"><a href="#">'+song.artist + " - " + song.title + '</a></button>');
+			$('#dropdown').append('<button class="btn btn-warning col-md-12 playlist"><a href=/songs/'+ song._id + '>' + song.artist + ' - ' + song.title + '</a></button>');
 		});
 	});
 }

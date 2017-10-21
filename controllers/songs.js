@@ -21,6 +21,19 @@ function addPlaylist(req, res, next) {
 	req.user.save();
 }
 
+// GET /songs
+function getSongs(req, res, next) {
+	console.log("getSongs: controller hit");
+	db.Song.find({}, function(err, songs) {
+		res.json(songs);
+	});
+}
+
+// GET /songs/:id
+function getSongById(req, res, next) {
+	console.log("getSongById: controller hit");
+}
+
 // GET /randomize
 function getRandom(req, res, next) {
 	console.log("getRandom: controller hit");
@@ -42,5 +55,7 @@ function getRandom(req, res, next) {
 module.exports = {
 	getPlaylist: getPlaylist,
 	addPlaylist: addPlaylist,
+	getSongs: getSongs,
+	getSongById: getSongById,
   getRandom: getRandom
 };

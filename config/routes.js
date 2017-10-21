@@ -33,6 +33,12 @@ router.route('/')
  	.get(songsController.getPlaylist)
  	.post(songsController.addPlaylist)
 
+ router.route('/songs')
+ 	.get(songsController.getSongs)
+
+ router.route('/songs/:id')
+ 	.get(songsController.getSongById)
+
  router.route('/randomize')
  	.get(songsController.getRandom)
 
