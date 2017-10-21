@@ -1,6 +1,18 @@
 const db = require('../models');
 let request = require('request');
 const apikey = require('../config/env.js');
+var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+// GET /playlist
+function getPlaylist(req, res, next) {
+	console.log("getPlaylist: controller hit");
+	let promise = db.Song.find({ _id: { $in: req.user.songs}}).exec();
+	promise.then(function(playlist) {
+		console.log(playlist);
+		res.json({playlist: playlist});
+	});
+}
 
 // POST /playlist
 function addPlaylist(req, res, next) {
@@ -11,7 +23,7 @@ function addPlaylist(req, res, next) {
 
 // GET /randomize
 function getRandom(req, res, next) {
-	 console.log("getRandom: controller hit");
+	console.log("getRandom: controller hit");
 	db.Song.find({}, function(err, songs) {
 		let randomize = Math.floor(Math.random() * songs.length);
 		let track_id = songs[randomize].lyricsId;
@@ -28,6 +40,7 @@ function getRandom(req, res, next) {
 
 
 module.exports = {
+	getPlaylist: getPlaylist,
 	addPlaylist: addPlaylist,
   getRandom: getRandom
 };

@@ -30,6 +30,7 @@ router.route('/')
  	.get(usersController.getLogout)
 
  router.route('/playlist')
+ 	.get(songsController.getPlaylist)
  	.post(songsController.addPlaylist)
 
  router.route('/randomize')

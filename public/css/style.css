@@ -65,10 +65,12 @@ body {
       background-color: white; }
     body .addPlaylist:focus {
       color: white; }
-  body #playlist {
+  body #playlist,
+  body #dropdown {
     background-color: gold;
     color: black; }
-    body #playlist a {
+    body #playlist a,
+    body #dropdown a {
       color: black;
       font-size: 36px;
       text-shadow: none; }
