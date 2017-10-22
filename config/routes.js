@@ -50,4 +50,7 @@ router.route('/songs/new')
  router.route('/comments')
  	.post(songsController.postComment)
 
+ router.route('/lyrics')
+ 	.post(songsController.searchLyrics)
+
 module.exports = router;

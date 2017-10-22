@@ -81,6 +81,9 @@ body {
       width: 100%; }
   body #choose-lyrics {
     background-color: transparent; }
+    body #choose-lyrics a {
+      font-size: 18px;
+      white-space: normal; }
   body .user {
     color: gold;
     margin-top: 36px; }

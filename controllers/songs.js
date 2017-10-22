@@ -66,7 +66,6 @@ function getRandom(req, res, next) {
 // GET /comments
 function getComments(req, res, next) {
 	console.log("getComments: controller hit");
-	console.log(req.params);
 	db.Song.findOne({_id: req.params.id}, function(err, foundSong) {
 		res.json({song: foundSong});
 	});
@@ -79,6 +78,30 @@ function postComment(req, res, next) {
 	});
 }
 
+// POST /lyrics
+function searchLyrics(req, res, next) {
+	console.log("searchLyrics: controller hit");
+	let artist = req.body.artist;
+	let track = req.body.title;
+	let URL ="http://api.musixmatch.com/ws/1.1/track.search?q_artist=" + artist + "&q_track=" + track  + "&apikey=" + apikey;
+	request(URL, function(error, response, body) {
+		if (error) { console.log('error:', error); }
+		console.log('statusCode:', response && response.statusCode);
+		body = JSON.parse(body);
+		let foundTracks = body.message.body.track_list;
+		let results = [];
+		foundTracks.forEach(function(data) {
+			console.log(data.track.track_name);
+			console.log(data.track.artist_name);
+			console.log(data.track.track_id);
+			results.push({	title: data.track.track_name,
+									artist: data.track.artist_name,
+									track_id: data.track.track_id	});
+		});
+		res.json({results: results});
+	});
+}
+
 
 module.exports = {
 	getPlaylist: getPlaylist,
@@ -87,5 +110,6 @@ module.exports = {
 	getSongById: getSongById,
   getRandom: getRandom,
   getComments: getComments,
-  postComment: postComment
+  postComment: postComment,
+  searchLyrics: searchLyrics
 };

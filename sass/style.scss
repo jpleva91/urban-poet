@@ -132,6 +132,10 @@ body {
 
   #choose-lyrics {
     background-color: $background-clear;
+    a {
+      font-size: $small-font;
+      white-space: normal;
+    }
   }
 	
 	.user {
