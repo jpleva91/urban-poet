@@ -17,6 +17,9 @@ function authenticatedUser(req, res, next) {
 router.route('/')
 	.get(authenticatedUser, staticsController.home)
 
+router.route('/songs/new')
+	.get(authenticatedUser, staticsController.addSong)
+
  router.route('/signup')
  	.get(usersController.getSignup)
  	.post(usersController.postSignup)

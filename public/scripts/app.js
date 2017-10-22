@@ -47,7 +47,6 @@ $(document).ready(function() {
 	});
 
 	$('#post-comment').on('click', function() {
-		// console.log("clickity");
 		let songId = $(this).attr('data-song-id');
 		let comment = $('#addComment').val();
 		$.ajax({
@@ -55,12 +54,8 @@ $(document).ready(function() {
 			url: '/comments',
 			data: ({ songId: songId,
 							 comment: comment })
-		})
-		.done(function(data) {
-			console.log("comment added");
-			// console.log(data);
 		});
-
+		$('#addComment').val('');
 		getComments();
 
 	});
@@ -102,11 +97,8 @@ function getComments() {
 	.done(function(data) {
 		$('.comment-section').empty();
 		data.song.comments.forEach(function(data) {
-			console.log("Username:", data.user);
-			console.log("Comment:", data.comment);
 			$('.comment-section').append('<h3 class="user">' + data.user + '</h3>');
 			$('.comment-section').append('<li class="content-box" id="comment">' + data.comment + '</li>');
 		});
-		// $('.comment-section').html(data);
 	});
 }
