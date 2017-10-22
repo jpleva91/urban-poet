@@ -26,6 +26,14 @@ body {
   	color: $primary-color;
   	font-size: $large-font;
   	margin-bottom: $padding-small;
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $gold-color;
+      }
+    }
   }
 	// songPlayer.html => add a new song link
   #new-song {
@@ -33,6 +41,11 @@ body {
   	font-size: $small-font;
   	float: right;
   	margin-bottom: $padding-small;
+    text-decoration: none;
+
+    &:hover {
+      color: $gold-color;
+    }
   }
 	
 	// Lyrics, Welcome padding

@@ -9,11 +9,19 @@ body {
     color: white;
     font-size: 64px;
     margin-bottom: 6px; }
+    body .jumbotron a {
+      color: white;
+      text-decoration: none; }
+      body .jumbotron a:hover {
+        color: gold; }
   body #new-song {
     color: white;
     font-size: 18px;
     float: right;
-    margin-bottom: 6px; }
+    margin-bottom: 6px;
+    text-decoration: none; }
+    body #new-song:hover {
+      color: gold; }
   body .sub-header {
     font-size: 36px;
     padding-top: 36px; }
