@@ -2,7 +2,7 @@
 
 			<h2 class="sub-header" id="welcome">Add a Song</h2>
 			<div class="container col-md-6" id="login">
-				<form action="musicPage.html">
+				<form id="newSong">
 					<div class="form-group">
 						<label for="inputTitle" class="h1">Title</label>
 						<input type="text" class="form-control" id="inputTitle" placeholder="Enter title">
@@ -18,14 +18,38 @@
 					<div class="form-group">
 						<label for="searchLyrics" class="h1">Search Lyrics</label>
 					</div>					
-					<button type="submit" class="btn btn-primary col-md-12" id="searchLyrics">Go!</button>
 				</form>
+				<button class="btn btn-primary col-md-12" id="searchLyrics">Go!</button>
 			</div>	
 		</div>
-		
-	<!-- jQuery -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="songModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content content-box">
+      <div class="modal-header">
+        <h5 class="modal-title sub-header">Choose Lyrics</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+		<!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Bootstrap -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <!-- MusixMatch Tracking Script -->
-    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+		<script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
+
+   	<script src="../scripts/addSong.js"></script>

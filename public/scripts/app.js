@@ -57,8 +57,8 @@ $(document).ready(function() {
 		});
 		$('#addComment').val('');
 		getComments();
-
 	});
+	
 });
 
 
