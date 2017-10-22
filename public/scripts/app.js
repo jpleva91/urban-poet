@@ -5,6 +5,9 @@ $(document).ready(function() {
 	console.log("jQuery has entered the match");
 	randomize();
 	playlist();
+	setTimeout(function() {
+		getComments();
+	}, 1000);
 
 	$('.addPlaylist').on('click', function() {
 		let songId = $(this).attr('data-song-id');
@@ -14,7 +17,9 @@ $(document).ready(function() {
 			data: {songId: songId}
 		});
 		$('#dropdown').empty();
-		playlist();
+		setTimeout(function() {
+			playlist();
+		}, 1000);
 	});
 
 	$('#dropdown').on('click', '.song-button', function(e) {
@@ -24,15 +29,44 @@ $(document).ready(function() {
 			url: $(this).attr('href'),
 		})
 		.done(function(data) {
+		$('.addPlaylist').attr('data-song-id', data.song._id);
+		$('#post-comment').attr('data-song-id', data.song._id);
 		$('#song-player').html(data.song.soundCloudEmbedUrl);
 		$('#lyrics').html(data.lyrics);
+		setTimeout(function() {
+			getComments();
+		}, 1000);
 		});
 	});
 
 	$('#randomize').on('click', function() {
 		randomize();
+		setTimeout(function() {
+			getComments();
+		}, 1000);
+	});
+
+	$('#post-comment').on('click', function() {
+		// console.log("clickity");
+		let songId = $(this).attr('data-song-id');
+		let comment = $('#addComment').val();
+		$.ajax({
+			type: 'post',
+			url: '/comments',
+			data: ({ songId: songId,
+							 comment: comment })
+		})
+		.done(function(data) {
+			console.log("comment added");
+			// console.log(data);
+		});
+
+		getComments();
+
 	});
 });
+
+
 
 function playlist() {
 	$.ajax({
@@ -53,7 +87,26 @@ function randomize() {
 	})
 	.done(function(data) {
 		$('.addPlaylist').attr('data-song-id', data.song._id);
+		$('#post-comment').attr('data-song-id', data.song._id);
 		$('#song-player').html(data.song.soundCloudEmbedUrl);
 		$('#lyrics').html(data.lyrics);
+	});
+}
+
+function getComments() {
+	let songId = $('.addPlaylist').attr('data-song-id');
+	$.ajax({
+		type: 'get',
+		url: '/comments/' + songId
+	})
+	.done(function(data) {
+		$('.comment-section').empty();
+		data.song.comments.forEach(function(data) {
+			console.log("Username:", data.user);
+			console.log("Comment:", data.comment);
+			$('.comment-section').append('<h3 class="user">' + data.user + '</h3>');
+			$('.comment-section').append('<li class="content-box" id="comment">' + data.comment + '</li>');
+		});
+		// $('.comment-section').html(data);
 	});
 }

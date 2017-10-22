@@ -41,4 +41,10 @@ router.route('/')
  router.route('/randomize')
  	.get(songsController.getRandom)
 
+ router.route('/comments/:id')
+ 	.get(songsController.getComments)
+
+ router.route('/comments')
+ 	.post(songsController.postComment)
+
 module.exports = router;

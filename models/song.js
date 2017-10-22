@@ -5,7 +5,8 @@ let SongSchema = new Schema({
 	title: String,
 	artist: String,
 	soundCloudEmbedUrl: String,
-	lyricsId: String
+	lyricsId: String,
+	comments: [{user: String, comment: String}]
 });
 
 let Song = mongoose.model('Song', SongSchema);

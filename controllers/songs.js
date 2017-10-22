@@ -63,11 +63,29 @@ function getRandom(req, res, next) {
 	});
 }
 
+// GET /comments
+function getComments(req, res, next) {
+	console.log("getComments: controller hit");
+	console.log(req.params);
+	db.Song.findOne({_id: req.params.id}, function(err, foundSong) {
+		res.json({song: foundSong});
+	});
+}
+
+// POST /comments
+function postComment(req, res, next) {
+	console.log("postComment: controller hit");
+	db.Song.findOneAndUpdate({_id: req.body.songId}, {'$push': {'comments': {'user': req.user.local.email, 'comment': req.body.comment}}}, function(err, foundSong){
+	});
+}
+
 
 module.exports = {
 	getPlaylist: getPlaylist,
 	addPlaylist: addPlaylist,
 	getSongs: getSongs,
 	getSongById: getSongById,
-  getRandom: getRandom
+  getRandom: getRandom,
+  getComments: getComments,
+  postComment: postComment
 };
