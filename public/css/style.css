@@ -66,17 +66,21 @@ body {
     body .addPlaylist:focus {
       color: white; }
   body #playlist,
-  body #dropdown {
+  body #dropdown,
+  body #choose-lyrics {
     background-color: gold;
     color: black; }
     body #playlist a,
-    body #dropdown a {
+    body #dropdown a,
+    body #choose-lyrics a {
       color: black;
       display: block;
       font-size: 36px;
       text-decoration: none;
       text-shadow: none;
       width: 100%; }
+  body #choose-lyrics {
+    background-color: transparent; }
   body .user {
     color: gold;
     margin-top: 36px; }

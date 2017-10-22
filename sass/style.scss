@@ -116,7 +116,8 @@ body {
   }
 
   #playlist,
-  #dropdown {
+  #dropdown,
+  #choose-lyrics {
   	background-color: $gold-color;
   	color: $background-color;
   	a {
@@ -127,6 +128,10 @@ body {
   		text-shadow: none;
       width: 100%;
   	}
+  }
+
+  #choose-lyrics {
+    background-color: $background-clear;
   }
 	
 	.user {
