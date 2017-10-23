@@ -17,6 +17,7 @@ function authenticatedUser(req, res, next) {
 router.route('/')
 	.get(authenticatedUser, staticsController.home)
 
+// new route
 router.route('/songs/new')
 	.get(authenticatedUser, staticsController.addSong)
 
@@ -35,12 +36,16 @@ router.route('/songs/new')
  	.get(songsController.getPlaylist)
  	.post(songsController.addPlaylist)
 
+// index route
  router.route('/songs')
  	.get(songsController.getSongs)
  	.post(songsController.postSong)
 
+// show, update, delete routes
  router.route('/songs/:id')
  	.get(songsController.getSongById)
+ 	.put(songsController.updateSongById)
+ 	.delete(songsController.deleteSongById)
 
  router.route('/randomize')
  	.get(songsController.getRandom)
@@ -48,6 +53,7 @@ router.route('/songs/new')
  router.route('/comments/:id')
  	.get(songsController.getComments)
 
+// edit, create, destroy routes
  router.route('/comments')
  	.post(songsController.postComment)
  	.put(songsController.updateComment)

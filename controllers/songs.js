@@ -32,7 +32,6 @@ function getSongs(req, res, next) {
 // POST /songs
 function postSong(req, res, next) {
 	console.log("postSong: controller hit");
-	// console.log(req.body);
 	let newSong = new db.Song({
 		title: req.body.title,
 		artist: req.body.artist,
@@ -51,7 +50,6 @@ function postSong(req, res, next) {
 // GET /songs/:id
 function getSongById(req, res, next) {
 	console.log("getSongById: controller hit");
-	// console.log(req.params.id);
 	db.Song.findOne({_id: req.params.id}, function(err, foundSong) {
 		let track_id = foundSong.lyricsId;
 		let URL = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + track_id + "&apikey=" + apikey;
@@ -62,6 +60,33 @@ function getSongById(req, res, next) {
 			let lyrics = body.message.body.lyrics.lyrics_body;
 			res.json({song: foundSong, lyrics: lyrics});
 		});
+	});
+}
+
+// PUT /songs/:id
+function updateSongById(req, res, next) {
+	console.log("updateSongById: controller hit");
+	let songId = req.params.id;
+	db.Song.findOne({ _id: songId }, function(err, song) {
+		song.set({
+			title: req.body.title,
+			artist: req.body.artist,
+			soundCloudEmbedUrl: req.body.soundCloudEmbedUrl,
+			lyricsId: req.body.lyricsId
+		});
+		song.save(function(err, updatedSong) {
+			if (err) { return console.log("Error:", err) ;}
+			res.json(song);
+		});
+	});
+}
+
+// DELETE /songs/:id
+function deleteSongById(req, res, next) {
+	console.log("deleteSongById: controller hit");
+	let songId = req.params.id;
+	db.Song.findOneAndRemove({ _id: songId}, function(err, deletedSong) {
+		res.json(deletedSong);
 	});
 }
 
@@ -160,6 +185,8 @@ module.exports = {
 	getSongs: getSongs,
 	postSong: postSong,
 	getSongById: getSongById,
+	updateSongById: updateSongById,
+	deleteSongById: deleteSongById,
   getRandom: getRandom,
   getComments: getComments,
   postComment: postComment,
