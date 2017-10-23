@@ -19,3 +19,9 @@ This web app is hosted on heroku, using node.js for the server. The database use
 ## Mockup
 ### Login Page
 ![login-page](https://github.com/jpleva91/urban-poet/blob/master/mockups/LoginPage.png)
+### Music Page
+![music-page](https://github.com/jpleva91/urban-poet/blob/master/mockups/MusicPage.png)
+### Add Song Page
+![add-song-page](https://github.com/jpleva91/urban-poet/blob/master/mockups/AddSongPage.png)
+### Lyrics Search Page
+![lyrics-search-page](https://github.com/jpleva91/urban-poet/blob/master/mockups/SearchLyrics.png)
