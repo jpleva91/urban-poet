@@ -88,6 +88,10 @@ function randomize() {
 	});
 }
 
+$('.comment-section').on('click', 'button', function() {
+	console.log("Clickity");
+});
+
 function getComments() {
 	let songId = $('.addPlaylist').attr('data-song-id');
 	$.ajax({
@@ -96,9 +100,16 @@ function getComments() {
 	})
 	.done(function(data) {
 		$('.comment-section').empty();
+		let currentUser = data.currentUser;
 		data.song.comments.forEach(function(data) {
-			$('.comment-section').append('<h3 class="user">' + data.user + '</h3>');
-			$('.comment-section').append('<li class="content-box" id="comment">' + data.comment + '</li>');
+			if(currentUser == data.user) {
+				$('.comment-section').append('<h3 class="user">' + data.user + '          ' + '<button class="btn btn-warning edit" id="' + data._id + '">Edit Comment</button></h3>');
+				$('.comment-section').append('<li class="content-box" id="comment">' + data.comment + '</li>');
+			}
+			else {
+				$('.comment-section').append('<h3 class="user">' + data.user + '</h3>');
+				$('.comment-section').append('<li class="content-box" id="comment">' + data.comment + '</li>');
+			}
 		});
 	});
 }

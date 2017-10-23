@@ -10,7 +10,6 @@ $(document).ready(function() {
 
 	$('#searchLyrics').on('click', function(e) {
 		e.preventDefault();
-		console.log("Clickity");
 		inputTitle = $('#inputTitle').val();		
 		inputArtist = $('#inputArtist').val();
 		inputSoundCloud = $('#inputSoundCloud').val();
@@ -24,7 +23,7 @@ $(document).ready(function() {
 				type: 'post',
 				url: '/lyrics',
 				data: ({ title: inputTitle,
-								 artist: inputArtist})
+								 artist: inputArtist })
 			})
 			.done(function(data) {
 				let results = data.results;
@@ -40,6 +39,8 @@ $(document).ready(function() {
 
 	$('#choose-lyrics').on('click', 'button', function() {
 			selectedLyricsId = $(this).attr('id');
+			$('#choose-lyrics').children().removeClass('toggle');
+			$(this).toggleClass('toggle');
 	});	
 
 	$('#save-song-button').on('click', function() {
@@ -47,11 +48,20 @@ $(document).ready(function() {
 			alert("Please select lyrics from list");
 		}
 		else {
-			console.log("title:", inputTitle);
-			console.log("artist:", inputArtist);
-			console.log("soundcloud url:", inputSoundCloud);
-			console.log("selectedLyricsId:", selectedLyricsId);
+			$.ajax({
+				type: 'post',
+				url: '/songs',
+				data: ({ title: inputTitle,
+							 artist: inputArtist,
+							 soundcloudUrl: inputSoundCloud,
+							 selectedLyricsId: selectedLyricsId })
+			});
+
+			$('#inputTitle').val('');		
+			$('#inputArtist').val('');
+			$('#inputSoundCloud').val('');
 			$('#songModal').modal('hide');
+			alert("Song Saved!");
 		}
 	});
 

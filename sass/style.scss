@@ -175,5 +175,18 @@ body {
   #lyrics {
     white-space: pre-wrap;
   }
+  
+  .toggle {
+    background-color: lime;
+    border: 5px solid green;
+    &:hover {
+      background-color: green;
+      border: 5px solid lime;
+    }
+  }
+
+  .edit {
+    background-color: cyan;
+  }
 
 }

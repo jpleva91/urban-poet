@@ -37,6 +37,7 @@ router.route('/songs/new')
 
  router.route('/songs')
  	.get(songsController.getSongs)
+ 	.post(songsController.postSong)
 
  router.route('/songs/:id')
  	.get(songsController.getSongById)

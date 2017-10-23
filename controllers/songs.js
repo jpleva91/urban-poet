@@ -29,6 +29,25 @@ function getSongs(req, res, next) {
 	});
 }
 
+// POST /songs
+function postSong(req, res, next) {
+	console.log("postSong: controller hit");
+	// console.log(req.body);
+	let newSong = new db.Song({
+		title: req.body.title,
+		artist: req.body.artist,
+		soundCloudEmbedUrl: req.body.soundcloudUrl,
+		lyricsId: req.body.selectedLyricsId
+	});
+
+	newSong.save(function(err, song) {
+		if (err) {
+			return console.log("save error: " + err);
+		}
+		console.log("saved ", song.title);
+	});
+}
+
 // GET /songs/:id
 function getSongById(req, res, next) {
 	console.log("getSongById: controller hit");
@@ -67,7 +86,8 @@ function getRandom(req, res, next) {
 function getComments(req, res, next) {
 	console.log("getComments: controller hit");
 	db.Song.findOne({_id: req.params.id}, function(err, foundSong) {
-		res.json({song: foundSong});
+		res.json({ currentUser: req.user.local.email,
+							 song: foundSong});
 	});
 }
 
@@ -107,9 +127,10 @@ module.exports = {
 	getPlaylist: getPlaylist,
 	addPlaylist: addPlaylist,
 	getSongs: getSongs,
+	postSong: postSong,
 	getSongById: getSongById,
   getRandom: getRandom,
   getComments: getComments,
   postComment: postComment,
-  searchLyrics: searchLyrics
+  searchLyrics: searchLyrics,
 };

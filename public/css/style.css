@@ -108,3 +108,11 @@ body {
     text-shadow: none; }
   body #lyrics {
     white-space: pre-wrap; }
+  body .toggle {
+    background-color: lime;
+    border: 5px solid green; }
+    body .toggle:hover {
+      background-color: green;
+      border: 5px solid lime; }
+  body .edit {
+    background-color: cyan; }
