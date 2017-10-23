@@ -56,7 +56,9 @@ $(document).ready(function() {
 							 comment: comment })
 		});
 		$('#addComment').val('');
-		getComments();
+		setTimeout(function() {
+			getComments();
+		}, 1000);
 	});
 
 	let commentId;
@@ -67,7 +69,20 @@ $(document).ready(function() {
 	});
 
 	$('#delete-comment-button').on('click', function() {
-		alert('Deleted! ' + commentId);
+		let songId = $('#post-comment').attr('data-song-id');
+		 $.ajax({
+		 	type: 'delete',
+		 	url: '/comments',
+		 	data: ({ songId: songId,
+		 				 commentId: commentId
+		 				})
+		 });
+
+		setTimeout(function() {
+			getComments();
+		}, 1000);
+		
+		alert("Deleted!");
 		$('#commentModal').modal('hide');
 	});
 
@@ -76,14 +91,16 @@ $(document).ready(function() {
 		let songId = $('#post-comment').attr('data-song-id');
 		$.ajax({
 			type: 'put',
-			url: '/comments/',
+			url: '/comments',
 			data:({ songId: songId,
 							commentId: commentId,
 							editedComment: editedComment })
 		});
+
 		setTimeout(function() {
 				getComments();
 		}, 1000);
+
 		alert("Saved!");
 		$('#commentModal').modal('hide');
 	});

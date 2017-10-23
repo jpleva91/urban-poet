@@ -51,6 +51,7 @@ router.route('/songs/new')
  router.route('/comments')
  	.post(songsController.postComment)
  	.put(songsController.updateComment)
+ 	.delete(songsController.deleteComment)
 
  router.route('/lyrics')
  	.post(songsController.searchLyrics)

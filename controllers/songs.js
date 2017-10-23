@@ -114,6 +114,20 @@ function updateComment(req, res, next) {
 	 });
 }
 
+// DELETE /comments
+function deleteComment(req, res, next) {
+	console.log("deleteComment: controller hit");
+	db.Song.findOne({_id: req.body.songId}, function(err, foundSong) {
+	 	foundSong.comments.forEach(function(data) {
+	 		if(data._id == req.body.commentId){
+	 			let index = foundSong.comments.indexOf(data);
+	 			foundSong.comments.splice(index, 1);
+	 		}
+	 	});
+	 	foundSong.save();
+	});
+}
+
 
 // POST /lyrics
 function searchLyrics(req, res, next) {
@@ -150,5 +164,6 @@ module.exports = {
   getComments: getComments,
   postComment: postComment,
   updateComment: updateComment,
-  searchLyrics: searchLyrics,
+  deleteComment: deleteComment,
+  searchLyrics: searchLyrics
 };
