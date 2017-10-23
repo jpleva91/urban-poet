@@ -6,6 +6,7 @@ let searchURL = "http://api.musixmatch.com/ws/1.1/track.search?q_artist=gza&q_tr
 let trackId = "53410090";
 let lyricsURL = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id="+trackId+"&apikey="+apikey;
 
+// search api function
 describe("Search", function() {
 	let apiError, apiResponse, apiBody;
 	before(function(done) {
@@ -29,6 +30,7 @@ describe("Search", function() {
 	});
 });
 
+// lyrics api function
 describe("Lyrics", function() {
 	let apiError, apiResponse, apiBody;
 	before(function(done) {

@@ -3,12 +3,16 @@ console.log("Sanity Check: JavaScript is loaded");
 $(document).ready(function() {
 
 	console.log("jQuery has entered the match");
+	// randomize current song
 	randomize();
+	// update user playlist
 	playlist();
+	// update comments section
 	setTimeout(function() {
 		getComments();
 	}, 1000);
 
+	// add song to playlist
 	$('.addPlaylist').on('click', function() {
 		let songId = $(this).attr('data-song-id');
 		$.ajax({
@@ -22,6 +26,7 @@ $(document).ready(function() {
 		}, 1000);
 	});
 
+	// user playlist
 	$('#dropdown').on('click', '.song-button', function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -39,6 +44,7 @@ $(document).ready(function() {
 		});
 	});
 
+	// i'm feeling lucky button
 	$('#randomize').on('click', function() {
 		randomize();
 		setTimeout(function() {
@@ -46,6 +52,7 @@ $(document).ready(function() {
 		}, 1000);
 	});
 
+	// post comment button
 	$('#post-comment').on('click', function() {
 		let songId = $(this).attr('data-song-id');
 		let comment = $('#addComment').val();
@@ -61,6 +68,7 @@ $(document).ready(function() {
 		}, 1000);
 	});
 
+	// edit & delete comments
 	let commentId;
 	$('.comment-section').on('click', '.edit', function() {
 		commentId = $(this).attr('id');
@@ -86,6 +94,7 @@ $(document).ready(function() {
 		$('#commentModal').modal('hide');
 	});
 
+	// save comment modal
 	$('#save-comment-button').on('click', function() {
 		let editedComment = $('#edit-comment').val();
 		let songId = $('#post-comment').attr('data-song-id');
@@ -106,7 +115,6 @@ $(document).ready(function() {
 	});
 	
 });
-
 
 
 function playlist() {

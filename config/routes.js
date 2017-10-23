@@ -14,6 +14,7 @@ function authenticatedUser(req, res, next) {
 	res.redirect('/login');
 }
 
+// main page
 router.route('/')
 	.get(authenticatedUser, staticsController.home)
 
@@ -21,17 +22,21 @@ router.route('/')
 router.route('/songs/new')
 	.get(authenticatedUser, staticsController.addSong)
 
+// user sign up
  router.route('/signup')
  	.get(usersController.getSignup)
  	.post(usersController.postSignup)
 
+// user login
  router.route('/login')
  	.get(usersController.getLogin)
  	.post(usersController.postLogin)
 
+// user logout
  router.route('/logout')
  	.get(usersController.getLogout)
 
+// user playlist
  router.route('/playlist')
  	.get(songsController.getPlaylist)
  	.post(songsController.addPlaylist)
@@ -47,9 +52,11 @@ router.route('/songs/new')
  	.put(songsController.updateSongById)
  	.delete(songsController.deleteSongById)
 
+// get random song
  router.route('/randomize')
  	.get(songsController.getRandom)
 
+// get comments by id
  router.route('/comments/:id')
  	.get(songsController.getComments)
 
@@ -59,6 +66,7 @@ router.route('/songs/new')
  	.put(songsController.updateComment)
  	.delete(songsController.deleteComment)
 
+// lyrics search
  router.route('/lyrics')
  	.post(songsController.searchLyrics)
 

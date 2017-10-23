@@ -9,7 +9,6 @@ function getPlaylist(req, res, next) {
 	console.log("getPlaylist: controller hit");
 	let promise = db.Song.find({ _id: { $in: req.user.songs}}).exec();
 	promise.then(function(playlist) {
-		console.log(playlist);
 		res.json({playlist: playlist});
 	});
 }
@@ -126,9 +125,6 @@ function postComment(req, res, next) {
 // PUT /comments
 function updateComment(req, res, next) {
 	console.log("editComment: controller hit");
-	console.log("SongId:", req.body.songId);
-	console.log("CommentId:", req.body.commentId);
-	console.log("Edited Comment:", req.body.editedComment);
 	 db.Song.findOne({_id: req.body.songId}, function(err, foundSong) {
 	 	foundSong.comments.forEach(function(data) {
 	 		if(data._id == req.body.commentId){
@@ -167,9 +163,6 @@ function searchLyrics(req, res, next) {
 		let foundTracks = body.message.body.track_list;
 		let results = [];
 		foundTracks.forEach(function(data) {
-			console.log(data.track.track_name);
-			console.log(data.track.artist_name);
-			console.log(data.track.track_id);
 			results.push({	title: data.track.track_name,
 									artist: data.track.artist_name,
 									track_id: data.track.track_id	});

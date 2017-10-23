@@ -12,6 +12,9 @@ $large-font: 64px;
 $small-font: 18px;
 $padding-large: 36px;
 $padding-small: 6px;
+$lime-color: lime;
+$green-color: green;
+$edit-color: rgb(66,139,202);
 
 body {
 	background: $background-image;
@@ -75,7 +78,7 @@ body {
 		margin-top: $padding-large;
 		margin-bottom: $padding-small;
 	}
-
+  
 	#signup-btn {
 		margin-top: $padding-small;
 		margin-bottom: $padding-large;
@@ -107,7 +110,7 @@ body {
   	padding-bottom: $padding-small;
   	padding-top: $padding-small;
   }
-
+  
   .addPlaylist {
   	border: none;
   	background-color: $background-clear;
@@ -127,7 +130,8 @@ body {
 			color:white;
 		}
   }
-
+  
+  // buttons
   #playlist,
   #dropdown,
   #choose-lyrics {
@@ -142,7 +146,8 @@ body {
       width: 100%;
   	}
   }
-
+  
+  // choose-lyrics modal
   #choose-lyrics {
     background-color: $background-clear;
     a {
@@ -151,20 +156,23 @@ body {
     }
   }
 	
+  // comments section
 	.user {
 		color: $gold-color;
 		margin-top: $padding-large;
 	}
-
+  
+  // comments font
   #comment {
   	font-size: $small-font;
     list-style: none;
   }
-
+  
+  // alert message remove text shadow
   #alert-message {
     text-shadow: none;
   }
-
+  
   .login {
     color: $gold-color;
     font-size: $small-font;
@@ -172,22 +180,26 @@ body {
     padding: $padding-small;
     text-shadow: none;
   }
+
+  // lyrics modal wrap text
   #lyrics {
     white-space: pre-wrap;
   }
-
+  
+  // toggle lyrics selection
   .toggle {
-    background-color: lime;
-    border: 5px solid green;
+    background-color: $lime-color;
+    border: 5px solid $green-color;
     &:hover {
-      background-color: green;
-      border: 5px solid lime;
+      background-color: $green-color;
+      border: 5px solid $lime-color;
     }
   }
-
+  
+  // edit comment button color
   .edit {
-    background-color: rgb(66,139,202);
-    color: white;
+    background-color: $edit-color;
+    color: $primary-color;
   }
 
 }

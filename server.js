@@ -8,8 +8,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
-// mongoose.connect('mongodb://localhost/urban-poet-authentication');
-
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());
