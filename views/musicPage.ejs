@@ -33,6 +33,29 @@
 			<textarea class="form-control" rows="7" id="addComment"></textarea>
 			<button class="btn btn-info" id="post-comment">Post Comment</button>
 		</div>
+
+		<div class="modal fade" tabindex="-1" role="dialog" id="commentModal">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content content-box">
+		      <div class="modal-header">
+		        <h5 class="modal-title sub-header">Edit Comment</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+						<div class="form-group">
+  						<textarea class="form-control" rows="5" id="edit-comment"></textarea>
+						</div>		      	
+		      </div>
+		      <div class="modal-footer">
+		      	<button type="button" class="btn btn-danger" id="delete-comment-button">Delete Comment</button>
+		        <button type="button" class="btn btn-primary" id="save-comment-button">Save changes</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 				<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

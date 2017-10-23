@@ -175,7 +175,7 @@ body {
   #lyrics {
     white-space: pre-wrap;
   }
-  
+
   .toggle {
     background-color: lime;
     border: 5px solid green;
@@ -186,7 +186,8 @@ body {
   }
 
   .edit {
-    background-color: cyan;
+    background-color: rgb(66,139,202);
+    color: white;
   }
 
 }

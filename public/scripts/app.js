@@ -58,6 +58,35 @@ $(document).ready(function() {
 		$('#addComment').val('');
 		getComments();
 	});
+
+	let commentId;
+	$('.comment-section').on('click', '.edit', function() {
+		commentId = $(this).attr('id');
+		$('#edit-comment').val("Please Enter Your Changes or Delete Comment");
+		$('#commentModal').modal();
+	});
+
+	$('#delete-comment-button').on('click', function() {
+		alert('Deleted! ' + commentId);
+		$('#commentModal').modal('hide');
+	});
+
+	$('#save-comment-button').on('click', function() {
+		let editedComment = $('#edit-comment').val();
+		let songId = $('#post-comment').attr('data-song-id');
+		$.ajax({
+			type: 'put',
+			url: '/comments/',
+			data:({ songId: songId,
+							commentId: commentId,
+							editedComment: editedComment })
+		});
+		setTimeout(function() {
+				getComments();
+		}, 1000);
+		alert("Saved!");
+		$('#commentModal').modal('hide');
+	});
 	
 });
 
@@ -87,10 +116,6 @@ function randomize() {
 		$('#lyrics').html(data.lyrics);
 	});
 }
-
-$('.comment-section').on('click', 'button', function() {
-	console.log("Clickity");
-});
 
 function getComments() {
 	let songId = $('.addPlaylist').attr('data-song-id');

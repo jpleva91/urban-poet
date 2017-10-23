@@ -82,7 +82,7 @@ function getRandom(req, res, next) {
 	});
 }
 
-// GET /comments
+// GET /comments/:id
 function getComments(req, res, next) {
 	console.log("getComments: controller hit");
 	db.Song.findOne({_id: req.params.id}, function(err, foundSong) {
@@ -97,6 +97,23 @@ function postComment(req, res, next) {
 	db.Song.findOneAndUpdate({_id: req.body.songId}, {'$push': {'comments': {'user': req.user.local.email, 'comment': req.body.comment}}}, function(err, foundSong){
 	});
 }
+
+// PUT /comments
+function updateComment(req, res, next) {
+	console.log("editComment: controller hit");
+	console.log("SongId:", req.body.songId);
+	console.log("CommentId:", req.body.commentId);
+	console.log("Edited Comment:", req.body.editedComment);
+	 db.Song.findOne({_id: req.body.songId}, function(err, foundSong) {
+	 	foundSong.comments.forEach(function(data) {
+	 		if(data._id == req.body.commentId){
+	 			data.comment = req.body.editedComment;
+	 		}
+	 	});
+	 	foundSong.save();
+	 });
+}
+
 
 // POST /lyrics
 function searchLyrics(req, res, next) {
@@ -132,5 +149,6 @@ module.exports = {
   getRandom: getRandom,
   getComments: getComments,
   postComment: postComment,
+  updateComment: updateComment,
   searchLyrics: searchLyrics,
 };
