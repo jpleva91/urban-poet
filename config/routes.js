@@ -14,7 +14,7 @@ function authenticatedUser(req, res, next) {
 	res.redirect('/login');
 }
 
-// main page
+// main page 
 router.route('/')
 	.get(authenticatedUser, staticsController.home)
 
