@@ -8,6 +8,8 @@ $(document).ready(function() {
 	let inputSoundCloud;
 	let selectedLyricsId;
 
+	$('[data-toggle="popover"]').popover();
+
 	$('#searchLyrics').on('click', function(e) {
 		e.preventDefault();
 		inputTitle = $('#inputTitle').val();		
@@ -64,6 +66,5 @@ $(document).ready(function() {
 			alert("Song Saved!");
 		}
 	});
-
 
 });

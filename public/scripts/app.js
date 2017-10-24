@@ -34,14 +34,15 @@ $(document).ready(function() {
 			url: $(this).attr('href'),
 		})
 		.done(function(data) {
-		$('.addPlaylist').attr('data-song-id', data.song._id);
-		$('#post-comment').attr('data-song-id', data.song._id);
-		$('#song-player').html(data.song.soundCloudEmbedUrl);
-		$('#lyrics').html(data.lyrics);
-		setTimeout(function() {
-			getComments();
-		}, 1000);
+			$('.addPlaylist').attr('data-song-id', data.song._id);
+			$('#post-comment').attr('data-song-id', data.song._id);
+			$('#song-player').html(data.song.soundCloudEmbedUrl);
+			$('#lyrics').html(data.lyrics);
+			setTimeout(function() {
+				getComments();
+			}, 1000);
 		});
+		window.scrollTo(0,0);
 	});
 
 	// i'm feeling lucky button
@@ -140,6 +141,7 @@ function randomize() {
 		$('#song-player').html(data.song.soundCloudEmbedUrl);
 		$('#lyrics').html(data.lyrics);
 	});
+	window.scrollTo(0,0);
 }
 
 function getComments() {
